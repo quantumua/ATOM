@@ -1,0 +1,13 @@
+implementationVersion,revisionDate,pageObjectName,locatorId,text
+2.6.2,2017-05-29 15:24 +0000,WelcomeDialogImpl,caption,Welcome
+2.6.2,2017-05-29 15:24 +0000,WelcomeDialogImpl,startButton,Start
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,progressBarText,98% completed
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,chatLink,Chat Now
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,docHeader,Documents
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,docDescription,"ID Verification - This verification process confirms your identity and is an important part of our security measures, keeping you and your investments safe."
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,smsWrapper,Upload with your smartphone
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,smsWrapperDescription,"You can upload your documents using your mobile phone.
+Please confirm your mobile number
+A text message has been sent to your mobile phone. Please click on the link that is attached and continue to upload your documents."
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,poiHeader,POI (Proof of identity)
+2.6.2,2017-05-29 15:24 +0000,UploadDocumentsDialogImpl,porHeader,POR (Proof of residence)

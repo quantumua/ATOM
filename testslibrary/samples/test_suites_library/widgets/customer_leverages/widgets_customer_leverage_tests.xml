@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="sequential execution of tests" verbose="1" parallel="methods" thread-count="5" >
+    <test name="Regression leverages">
+        <classes>
+            <class name="com.betamedia.atom.testslibrary.option24.end2end.crm.CustomerLeverageWidgetsTest" >
+                <methods>
+                    <include name="checkRejectedCustomerHasDisabledSelectLeverageComboBox"/>
+                    <include name="checkThatNoExperienceCustomerHasDisabledLeverageComboBox"/>
+                    <include name="checkThatLowExperienceCustomerCanSelectLeverage"/>
+                    <include name="checkThatHighExperienceCustomerCanSelectLeverage"/>
+                    <include name="checkThatExpertCustomerCanSelectLeverage"/>
+                    <include name="checkThatUnknownCustomerCanSelectLeverage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

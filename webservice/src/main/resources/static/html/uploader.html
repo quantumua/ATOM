@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>ATOM</title>
+    <link href="css/angular-bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/angular-bootstrap.js" type="text/javascript"></script>
+    <script src="js/client.js"></script>
+</head>
+
+<body ng-app="client">
+<div id = "menu" style='margin-left: 20%;'>
+    <a href="/atom/">Run tests</a> |
+    <a href="/atom/schedule">Schedule test execution</a> |
+    <a href="/atom/upload">Upload data</a>
+</div>
+<hr width="60%"/>
+<div ng-controller="jarUploader as jarUploader" class="container">
+    <form role="form" ng-submit="jarUploader.upload()">
+        <div class="form-group">
+            <label for="jar">JAR to upload:</label>
+            <input type="file" file-model="jar" class="form-control" id="jar" name="jar"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+        <h3 ng-cloak>{{jarUploader.message}}</h3>
+    </form>
+</div>
+<div ng-controller="fileUploader as fileUploader" class="container">
+    <form role="form" ng-submit="fileUploader.uploadExpectedCfdAssets()">
+        <div class="form-group">
+            <label for="expectedCfdAssets">Expected CFD asset data to upload:</label>
+            <input type="file" file-model="expectedCfdAssets" class="form-control" id="expectedCfdAssets" name="expectedCfdAssets"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+        <h3 ng-cloak>{{fileUploader.message}}</h3>
+    </form>
+</div>
+<hr width="60%"/>
+</body>
+</html>

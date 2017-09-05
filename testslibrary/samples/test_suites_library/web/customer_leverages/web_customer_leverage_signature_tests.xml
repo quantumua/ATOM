@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="sequential execution of tests" verbose="1">
+    <test name="Regression leverage">
+        <classes>
+            <class name="com.betamedia.atom.testslibrary.option24.end2end.bmw.CustomerLeverageWithRiskSignatureTest" >
+                <methods>
+                    <!-- sample test for Spanish (cc: ES) customer -->
+                    <parameter name="countryCode" value="ES"/>
+                    <parameter name="availableProducts" value="BINARY,CFD,FOREX"/>
+                    <parameter name="notAvailableProducts" value=""/>
+                    <include name="checkIsAbleToLoginForNoExperienceCustomer"/>
+                    <include name="checkBinaryProductForNoExperienceCustomer"/>
+                    <include name="checkNoBinaryProductForNoExperienceCustomer"/>
+                    <include name="checkCfdProductForNoExperienceCustomer"/>
+                    <include name="checkAvailableProductsForNoExperienceCustomer"/>
+                    <include name="checkNotAvailableProductsForNoExperienceCustomer"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

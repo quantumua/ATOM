@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+    <title>ATOM</title>
+    <link href="css/angular-bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/angular-bootstrap.js" type="text/javascript"></script>
+    <script src="js/client.js"></script>
+</head>
+
+<body ng-app="client">
+<div id="menu" style='margin-left: 20%;'>
+    <a href="/atom/">Run tests</a> |
+    <a href="/atom/schedule">Schedule test execution</a> |
+    <a href="/atom/upload">Upload data</a>
+</div>
+<hr width="60%"/>
+<div ng-controller="scheduler as scheduler" class="container">
+    <form role="form" class="form-horizontal" ng-submit="scheduler.schedule()">
+        <div class="form-group">
+            <label for="name" class="control-label col-sm-2">Name:</label>
+            <div class="col-sm-10">
+                <input type="text" ng-model="name" class="form-control" id="name" name="name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="emailAddress" class="control-label col-sm-2">Email:</label>
+            <div class="col-sm-10">
+                <input type="text" ng-model="emailAddress" class="form-control" id="emailAddress" name="emailAddress"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="schSuites" class="control-label col-sm-2">Suites:</label>
+            <div class="col-sm-10">
+                <input type="file" multiple file-model="suites" class="form-control" id="schSuites" name="suites"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="schProperties" class="control-label col-sm-2">Properties:</label>
+            <div class="col-sm-10">
+                <input type="file" file-model="properties" class="form-control" id="schProperties" name="properties"/>
+            </div>
+        </div>
+        <div class="form-group inline">
+            <div class="checkbox col-sm-offset-2">
+                <label><input type="checkbox" ng-model="isRepeating"
+                              id="isRepeating" name="isRepeating"
+                              ng-click="scheduler.cronEnabled = !scheduler.cronEnabled"
+                              ng-checked="true">Is repeating</label></div>
+        </div>
+        <div class="form-group inline" uib-collapse="!scheduler.cronEnabled">
+            <label for="cron" class="control-label col-sm-2">Cron expression:</label>
+            <div class="col-sm-10">
+                <input type="text" ng-model="cron" class="form-control" id="cron" name="cron"/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Schedule</button>
+        <div ng-repeat="message in scheduler.messages">
+            <h4 ng-cloak>{{message}}</h4>
+        </div>
+    </form>
+    <hr/>
+    <button type="button" ng-click="scheduler.getScheduledTests()" class="btn btn-primary btn-sm">Get scheduled tests
+    </button>
+    <div>
+        <div class="row">
+            <div class="col-md-2">Name</div>
+            <div class="col-md-2">Suites</div>
+            <div class="col-md-2">Date</div>
+            <div class="col-md-1">Time</div>
+            <div class="col-md-1">Report</div>
+            <div class="col-md-1">Status</div>
+            <div class="col-md-1">Cron</div>
+            <div class="col-md-1">Stop</div>
+            <div class="col-md-1">Abort</div>
+        </div>
+        <div class="row" ng-repeat="test in scheduler.tests">
+            <div class="col-md-2">{{test.name}}</div>
+            <div class="col-md-2">
+                <div ng-repeat="suite in test.suites" ng-cloak>
+                    {{suite}}
+                </div>
+            </div>
+            <div class="col-md-2">{{test.date}}</div>
+            <div class="col-md-1">{{test.time}}</div>
+            <div class="col-md-1">
+                <a target="_blank" ng-href="/atom/{{test.reportURL}}"
+                   ng-style="{'visibility': !!test.reportURL  ? 'visible':'hidden'}">
+                    link
+                </a>
+            </div>
+            <div class="col-md-1" ng-class="{highlight: test.status === 'COMPLETED'}">{{test.status}}</div>
+            <div class="col-md-1">{{test.cronExpression}}</div>
+            <div class="col-md-1">
+                <button type="button" ng-click="scheduler.stop(test)" class="btn btn-info btn-xs">Stop
+                </button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" ng-click="scheduler.abort(test)" class="btn btn-danger btn-xs">Abort
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr width="60%"/>
+</body>
+</html>

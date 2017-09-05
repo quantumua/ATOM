@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="login-logout-parallel" verbose="1" parallel="methods" thread-count="5">
+    <test name="login-logout-parallel">
+        <classes>
+            <class name="com.betamedia.atom.testslibrary.option24.end2end.LoginDialogTest">
+                <methods>
+                    <parameter name="username" value="maksym"/>
+                    <parameter name="password" value="password"/>
+                    <include name="logoutTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

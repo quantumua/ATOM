@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="BackEndTest" verbose="1" parallel="methods" thread-count="5">
+    <test name="Add Bonus Test">
+        <classes>
+            <class name="com.betamedia.atom.testslibrary.option24.backend.crm.BonusTest">
+            </class>
+        </classes>
+    </test>
+</suite>
