@@ -10,10 +10,6 @@ import com.betamedia.atom.core.environment.tp.EnvironmentDependent;
  */
 public interface TPTemplate<T extends EnvironmentDependent> extends BackEndOperationsTemplate, EnvironmentDependent {
 
-    AccountOperations accountOperations();
-
-    BonusOperations bonusOperations();
-
     CustomerOperations customerOperations();
 
     OnBoardingOperations onBoardingOperations();

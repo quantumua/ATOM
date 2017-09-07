@@ -10,7 +10,7 @@ import com.betamedia.atom.core.api.tp.entities.response.CRMResponse;
 import com.betamedia.atom.core.configuration.properties.CRMProperties;
 import com.betamedia.atom.core.dsl.type.EnvironmentType;
 import com.betamedia.atom.core.environment.tp.AutomationEnvironment;
-import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;

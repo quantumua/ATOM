@@ -1,16 +1,11 @@
 package com.betamedia.atom.core.api.tp.adapters.impl;
 
 import com.betamedia.atom.core.api.tp.adapters.AbstractHttpAdapter;
-import com.betamedia.atom.core.api.tp.entities.request.AccountRO;
-import com.betamedia.atom.core.api.tp.entities.response.CRMAccountCreate;
-import com.betamedia.atom.core.api.tp.entities.response.CRMAddBonus;
 import com.betamedia.atom.core.api.tp.entities.response.CRMDeposit;
 import com.betamedia.atom.core.api.tp.entities.response.TPCRMResponse;
 import com.betamedia.atom.core.configuration.properties.CRMProperties;
 import com.betamedia.atom.core.dsl.type.EnvironmentType;
 import com.betamedia.atom.core.environment.tp.QAEnvironment;
-import com.betamedia.tp.api.model.enums.AccountType;
-import com.betamedia.tp.api.model.enums.BonusType;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -68,11 +63,9 @@ public class TPCRMHttpAdapterTest {
     private String brandDisplayId = "testBrandDisplayId";
     private String transactionId = "testTransactionId";
     private String bonusDisplayId = "testBonusDisplayId";
-    private BonusType bonusType = BonusType.CASHBACK;
     private Double amount = 124.5;
     private Double wagerAmount = 2355.3;
 
-    private AccountType accountType = AccountType.TEST;
 
     @BeforeClass
     public void setupClass() throws Exception {
@@ -86,45 +79,6 @@ public class TPCRMHttpAdapterTest {
         when(crmProperties.getUrl()).thenReturn(baseUrl);
         ReflectionTestUtils.setField(adapter, AbstractHttpAdapter.class, "restTemplate", restTemplate, RestTemplate.class);
         adapter.init();
-    }
-
-    @Test
-    public void testAddBonus() throws Exception {
-        String url = baseUrl + addBonusUrl + "?accountId=" + accountId + "&brandId=" + brandDisplayId +
-                "&amount=" + amount + "&wagerAmount=" + wagerAmount + "&bonusType=" + bonusType + "&userPassword=" + backOfficePassword + "&userName=" + backOfficeUsername;
-        when(restTemplate.exchange(eq(url), eq(HttpMethod.GET), eq(null), any(ParameterizedTypeReference.class))).thenReturn(responseEntity);
-        when(responseEntity.getBody()).thenReturn(new TPCRMResponse<CRMAddBonus>(new CRMAddBonus(bonusDisplayId), Collections.emptyList()));
-
-        TPCRMResponse<CRMAddBonus> depositResponse = adapter.addBonus(accountId, bonusType, amount, wagerAmount, brandDisplayId);
-        assertNotNull(depositResponse);
-
-        CRMAddBonus addBonus = depositResponse.getResult();
-        assertNotNull(addBonus);
-
-        assertEquals(bonusDisplayId, addBonus.getBonusDisplayId());
-    }
-
-    @Test
-    public void testCreate() throws Exception {
-        String url = baseUrl + createAccountUrl + "?currency=" + currency + "&accountType=" + accountType.getName() + "&brandId=" + brandDisplayId +
-                "&firstName=" + firstName + "&userPassword=" + backOfficePassword + "&userName=" + backOfficeUsername;
-        when(restTemplate.exchange(eq(url), eq(HttpMethod.GET), eq(null), any(ParameterizedTypeReference.class))).thenReturn(responseEntity);
-        when(responseEntity.getBody()).thenReturn(new TPCRMResponse<CRMAccountCreate>(new CRMAccountCreate(accountId, accountDisplayId, brandDisplayId), Collections.emptyList()));
-
-        TPCRMResponse<CRMAccountCreate> accountResponse = adapter.create(
-                AccountRO.builder()
-                        .setBrandDisplayId(brandDisplayId)
-                        .setCurrency(currency)
-                        .setAccountType(accountType.getName())
-                        .setFirstName(firstName)
-                        .build());
-        assertNotNull(accountResponse);
-
-        CRMAccountCreate account = accountResponse.getResult();
-        assertNotNull(account);
-
-        assertEquals(accountId, account.getAccountId());
-        assertEquals(accountDisplayId, account.getAccountDisplayId());
     }
 
     @Test

@@ -9,6 +9,7 @@ import com.betamedia.atom.core.testlink.annotations.TestLinkProperties;
 import com.google.common.base.Throwables;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.testng.*;
 import org.testng.internal.ConstructorOrMethod;
 import org.testng.xml.XmlTest;
@@ -35,7 +36,7 @@ public class TestLinkListener implements ITestListener {
     private static final String TESTLINK_PLAN_ID = "testlinkPlanId";
     private static final String DISPLAY_ID = "displayId";
     private static final Logger logger = LogManager.getLogger(TestLinkListener.class);
-    private TestLinkService testLinkService;
+    private Optional<TestLinkService> testLinkService;
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
@@ -59,7 +60,8 @@ public class TestLinkListener implements ITestListener {
     private void updateTestCaseWithStatus(ITestResult testRes, ExecutionStatus status) {
         try {
             getTestCaseResult(testRes, status)
-                    .ifPresent(getTestLinkService()::updateTestCase);
+                    .ifPresent(result -> getTestLinkService()
+                            .ifPresent(service -> service.updateTestCase(result)));
         } catch (Exception e) {
             logger.error(MessageFormat.format("Failed to update test with result={0} {1}", testRes, e));
             Reporter.log(MessageFormat.format("Failed to update test with result={0}<br/>", testRes));
@@ -133,9 +135,13 @@ public class TestLinkListener implements ITestListener {
                 .collect(Collectors.joining(", "));
     }
 
-    private TestLinkService getTestLinkService() {
+    private Optional<TestLinkService> getTestLinkService() {
         if (testLinkService == null) {
-            testLinkService = AppContextHolder.getBean(TestLinkService.class);
+            try {
+                testLinkService = Optional.of(AppContextHolder.getBean(TestLinkService.class));
+            } catch (NoSuchBeanDefinitionException nsbde) {
+                testLinkService = Optional.empty();
+            }
         }
         return testLinkService;
     }

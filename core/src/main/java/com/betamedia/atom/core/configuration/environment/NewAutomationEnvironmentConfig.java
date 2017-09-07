@@ -42,24 +42,6 @@ public class NewAutomationEnvironmentConfig {
     }
 
     @Bean
-    public AbstractAccountOperations<NewAutomationEnvironment> newAutomationAccountOperations() {
-        return new AbstractAccountOperations<NewAutomationEnvironment>() {
-            public EnvironmentType getEnvironment() {
-                return NewAutomationEnvironmentConfig.getEnvironment();
-            }
-        };
-    }
-
-    @Bean
-    public AbstractBonusOperations<NewAutomationEnvironment> newAutomationBonusOperations() {
-        return new AbstractBonusOperations<NewAutomationEnvironment>() {
-            public EnvironmentType getEnvironment() {
-                return NewAutomationEnvironmentConfig.getEnvironment();
-            }
-        };
-    }
-
-    @Bean
     public AbstractCustomerOperations<NewAutomationEnvironment> newAutomationCustomerOperations() {
         return new AbstractCustomerOperations<NewAutomationEnvironment>() {
             public EnvironmentType getEnvironment() {

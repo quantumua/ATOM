@@ -7,11 +7,14 @@ import com.betamedia.atom.core.fwtestrunner.listeners.testng.impl.TestLinkListen
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static com.betamedia.atom.core.testlink.TestLinkService.TESTLINK_ENABLED;
 
 /**
  * Service to provide TestLink integration.
@@ -20,9 +23,11 @@ import java.net.URL;
  * Created by Oleksandr Losiev on 5/16/17.
  */
 @Service
+@ConditionalOnProperty(name = TESTLINK_ENABLED, havingValue = "true", matchIfMissing = true)
 public class TestLinkService {
 
     private static final Logger log = LogManager.getLogger(TestLinkService.class);
+    public static final String TESTLINK_ENABLED = "testlink.enabled";
     @Autowired
     private TestLinkProperties testLinkProperties;
     private TestLinkAPI api;

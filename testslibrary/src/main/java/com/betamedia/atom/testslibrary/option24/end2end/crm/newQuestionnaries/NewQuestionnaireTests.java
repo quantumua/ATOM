@@ -6,7 +6,6 @@ import com.betamedia.atom.core.api.crm.form.entities.TradingExperienceInfo;
 import com.betamedia.atom.core.api.tp.entities.namingstrategies.customer.WidgetsNamingStrategy;
 import com.betamedia.atom.core.api.tp.entities.request.CustomerRO;
 import com.betamedia.atom.core.testingtype.widgets.WidgetsEndToEndTest;
-import com.betamedia.common.enums.Country;
 import org.testng.annotations.Test;
 
 /**
@@ -15,7 +14,7 @@ import org.testng.annotations.Test;
 public class NewQuestionnaireTests extends WidgetsEndToEndTest {
 
     private final static String FREE_TEXT = "Free text";
-    private final static String COUNTRY = Country.TOGO.getDbValue().toUpperCase();
+    private final static String COUNTRY = "TG";
     private final static String TAX_ID = "1234567890";
 
     @Test(description = "ID:9129")

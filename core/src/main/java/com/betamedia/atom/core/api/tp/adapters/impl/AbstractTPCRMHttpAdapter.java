@@ -4,12 +4,10 @@ import com.betamedia.atom.core.api.tp.adapters.AbstractHttpAdapter;
 import com.betamedia.atom.core.api.tp.adapters.TPCRMHttpAdapter;
 import com.betamedia.atom.core.api.tp.entities.request.AccountRO;
 import com.betamedia.atom.core.api.tp.entities.response.CRMAccountCreate;
-import com.betamedia.atom.core.api.tp.entities.response.CRMAddBonus;
 import com.betamedia.atom.core.api.tp.entities.response.CRMDeposit;
 import com.betamedia.atom.core.api.tp.entities.response.TPCRMResponse;
 import com.betamedia.atom.core.configuration.properties.CRMProperties;
 import com.betamedia.atom.core.environment.tp.EnvironmentDependent;
-import com.betamedia.tp.api.model.enums.BonusType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,24 +54,6 @@ public abstract class AbstractTPCRMHttpAdapter<T extends EnvironmentDependent> e
     @Override
     protected String getBaseUrl() {
         return crmProperties.getUrl();
-    }
-
-    @Override
-    public TPCRMResponse<CRMAddBonus> addBonus(String accountId, BonusType bonusType, Double amount, Double wagerAmount, String brandDisplayId) {
-        Map<String, String> params = new LinkedHashMap<>();
-        params.put("accountId", accountId);
-        params.put("brandId", brandDisplayId);
-        params.put("amount", amount.toString());
-        params.put("wagerAmount", wagerAmount.toString());
-        params.put("bonusType", bonusType.getName());
-        String url = buildRequestUrl(ADD_BONUS_URL, params).build().toUriString();
-        logger.info("Adding bonus, url={}, {}", url, getEnvironment());
-        logger.info("Adding bonus {} to account {}, {}", amount, accountId, getEnvironment());
-        TPCRMResponse<CRMAddBonus> response = restTemplate.exchange(url, HttpMethod.GET, null,
-                new ParameterizedTypeReference<TPCRMResponse<CRMAddBonus>>() {
-                }).getBody();
-        logger.info("Bonus adding result, {}, {}", response, getEnvironment());
-        return response;
     }
 
     @Override

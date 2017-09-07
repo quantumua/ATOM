@@ -14,9 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <tp.version>2.6.2</tp.version>
-        <gs.version>10.2.1-14000-RELEASE</gs.version>
-        <hibernate.version>4.3.11.Final</hibernate.version>
         <selenium.version>3.4.0</selenium.version>
         <guava.version>21.0</guava.version>
     </properties>
@@ -28,47 +25,11 @@
         <relativePath/>
     </parent>
 
-    <!--<distributionManagement>-->
-    <!--<repository>-->
-    <!--<id>nexus</id>-->
-    <!--<name>Internal Releases</name>-->
-    <!--<url>http://uconn:8081/nexus/content/repositories/snapshots/</url>-->
-    <!--</repository>-->
-    <!--</distributionManagement>-->
-
     <repositories>
-        <repository>
-            <id>nexus</id>
-            <name>Internal Releases</name>
-            <url>http://uconn:8081/nexus/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
+
     </repositories>
 
     <dependencies>
-        <!-- betamedia dependencies -->
-        <dependency>
-            <groupId>com.betamedia.tp.api</groupId>
-            <artifactId>tp-api</artifactId>
-            <version>${tp.version}</version>
-            <scope>compile</scope>
-            <exclusions>
-                <!--is excluded for compatibility with jpa -->
-                <exclusion>
-                    <groupId>javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.betamedia.common</groupId>
-            <artifactId>common</artifactId>
-            <version>${tp.version}</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>

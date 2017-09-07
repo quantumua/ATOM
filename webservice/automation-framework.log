@@ -1,29 +1,12 @@
-2017-06-08 18:48:19,691 INFO [com.betamedia.atom.Application] [main]- Starting Application on maksym-pc with PID 10014 (/home/tsyb/work/scipiosoft/ATOM/webservice/target/classes started by tsyb in /home/tsyb/work/scipiosoft/ATOM/webservice)
-2017-06-08 18:48:19,696 INFO [com.betamedia.atom.Application] [main]- No active profile set, falling back to default profiles: default
-2017-06-08 18:48:24,568 WARN [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] [main]- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'runTestController': Unsatisfied dependency expressed through field 'testRunnerHandler'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testRunnerHandlerImpl': Unsatisfied dependency expressed through method 'setRunners' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTestNGRunner': Unsatisfied dependency expressed through field 'templateProvider'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTemplateProviderImpl': Unsatisfied dependency expressed through method 'init' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvTPTemplateImpl': Unsatisfied dependency expressed through field 'accountGroupOperations'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-2017-06-08 18:48:24,582 ERROR [org.springframework.boot.SpringApplication] [main]- Application startup failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'runTestController': Unsatisfied dependency expressed through field 'testRunnerHandler'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testRunnerHandlerImpl': Unsatisfied dependency expressed through method 'setRunners' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTestNGRunner': Unsatisfied dependency expressed through field 'templateProvider'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTemplateProviderImpl': Unsatisfied dependency expressed through method 'init' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvTPTemplateImpl': Unsatisfied dependency expressed through field 'accountGroupOperations'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+2017-09-07 16:52:59,958 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 18559 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 16:52:59,972 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 16:53:03,556 WARN [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] [main]- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testLinkService': Invocation of init method failed; nested exception is br.eti.kinoshita.testlinkjavaapi.util.TestLinkAPIException: Error verifying developer key: Failed to read server's response: testlink.scipiosoft.com
+2017-09-07 16:53:03,573 ERROR [org.springframework.boot.SpringApplication] [main]- Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testLinkService': Invocation of init method failed; nested exception is br.eti.kinoshita.testlinkjavaapi.util.TestLinkAPIException: Error verifying developer key: Failed to read server's response: testlink.scipiosoft.com
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:137)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:409)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
@@ -38,148 +21,61 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
-	at com.betamedia.atom.Application.main(Application.java:19)
+	at com.betamedia.atom.webservice.Application.main(Application.java:17)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:527)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'testRunnerHandlerImpl': Unsatisfied dependency expressed through method 'setRunners' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTestNGRunner': Unsatisfied dependency expressed through field 'templateProvider'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTemplateProviderImpl': Unsatisfied dependency expressed through method 'init' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvTPTemplateImpl': Unsatisfied dependency expressed through field 'accountGroupOperations'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:667)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
-	... 25 more
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTestNGRunner': Unsatisfied dependency expressed through field 'templateProvider'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTemplateProviderImpl': Unsatisfied dependency expressed through method 'init' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvTPTemplateImpl': Unsatisfied dependency expressed through field 'accountGroupOperations'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1309)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1275)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1180)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1096)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:659)
-	... 38 more
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TPTemplateProviderImpl': Unsatisfied dependency expressed through method 'init' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvTPTemplateImpl': Unsatisfied dependency expressed through field 'accountGroupOperations'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:667)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
-	... 54 more
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvTPTemplateImpl': Unsatisfied dependency expressed through field 'accountGroupOperations'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1309)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1275)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1180)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1096)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:659)
-	... 67 more
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'QAEnvAccountGroupOperationsImpl': Unsatisfied dependency expressed through field 'tpConnector'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
-	... 83 more
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'QAEnvFWTPConnectorImpl': Invocation of init method failed; nested exception is org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
+Caused by: br.eti.kinoshita.testlinkjavaapi.util.TestLinkAPIException: Error verifying developer key: Failed to read server's response: testlink.scipiosoft.com
+	at br.eti.kinoshita.testlinkjavaapi.MiscService.checkDevKey(MiscService.java:64)
+	at br.eti.kinoshita.testlinkjavaapi.TestLinkAPI.<init>(TestLinkAPI.java:148)
+	at com.betamedia.atom.core.testlink.TestLinkService.init(TestLinkService.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:311)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:134)
+	... 24 more
+Caused by: org.apache.xmlrpc.XmlRpcException: Failed to read server's response: testlink.scipiosoft.com
+	at org.apache.xmlrpc.client.XmlRpcStreamTransport.sendRequest(XmlRpcStreamTransport.java:161)
+	at org.apache.xmlrpc.client.XmlRpcHttpTransport.sendRequest(XmlRpcHttpTransport.java:143)
+	at org.apache.xmlrpc.client.XmlRpcSunHttpTransport.sendRequest(XmlRpcSunHttpTransport.java:69)
+	at org.apache.xmlrpc.client.XmlRpcClientWorker.execute(XmlRpcClientWorker.java:56)
+	at org.apache.xmlrpc.client.XmlRpcClient.execute(XmlRpcClient.java:167)
+	at org.apache.xmlrpc.client.XmlRpcClient.execute(XmlRpcClient.java:158)
+	at org.apache.xmlrpc.client.XmlRpcClient.execute(XmlRpcClient.java:147)
+	at br.eti.kinoshita.testlinkjavaapi.BaseService.executeXmlRpcCall(BaseService.java:83)
+	at br.eti.kinoshita.testlinkjavaapi.MiscService.checkDevKey(MiscService.java:61)
+	... 33 more
+Caused by: java.net.UnknownHostException: testlink.scipiosoft.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1105)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1283)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1258)
+	at org.apache.xmlrpc.client.XmlRpcSunHttpTransport.writeRequest(XmlRpcSunHttpTransport.java:104)
+	at org.apache.xmlrpc.client.XmlRpcStreamTransport.sendRequest(XmlRpcStreamTransport.java:151)
+	... 41 more
+2017-09-07 17:13:37,025 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 19694 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:13:37,030 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:13:40,450 WARN [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] [main]- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testLinkService': Invocation of init method failed; nested exception is java.net.MalformedURLException: no protocol: 
+2017-09-07 17:13:40,463 ERROR [org.springframework.boot.SpringApplication] [main]- Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testLinkService': Invocation of init method failed; nested exception is java.net.MalformedURLException: no protocol: 
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:137)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:409)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1620)
@@ -188,29 +84,28 @@ Caused by: org.springframework.beans.factory.BeanCreationException: Error creati
 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
-	... 96 more
-Caused by: org.openspaces.core.space.CannotCreateSpaceException: Failed to create space with url "jini://nyc/*/tpSpace"; nested exception is com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at org.openspaces.core.space.InternalSpaceFactory.create(InternalSpaceFactory.java:111)
-	at org.openspaces.core.space.UrlSpaceFactoryBean.doCreateSpace(UrlSpaceFactoryBean.java:99)
-	at org.openspaces.core.space.AbstractSpaceFactoryBean.afterPropertiesSet(AbstractSpaceFactoryBean.java:186)
-	at org.openspaces.core.space.UrlSpaceConfigurer.create(UrlSpaceConfigurer.java:360)
-	at org.openspaces.core.space.UrlSpaceConfigurer.space(UrlSpaceConfigurer.java:372)
-	at org.openspaces.core.GigaSpaceConfigurer.<init>(GigaSpaceConfigurer.java:67)
-	at com.betamedia.tp.api.connector.SimpleSpaceConnector.connect(SimpleSpaceConnector.java:103)
-	at com.betamedia.atom.core.connectors.tp.FWTPConnector.init(FWTPConnector.java:32)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.betamedia.atom.webservice.Application.main(Application.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:527)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.betamedia.atom.core.testlink.TestLinkService.init(TestLinkService.java:37)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -218,45 +113,69 @@ Caused by: org.openspaces.core.space.CannotCreateSpaceException: Failed to creat
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:366)
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:311)
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:134)
-	... 108 more
-Caused by: com.j_spaces.core.client.FinderException: LookupFinder failed to find service using the following service attributes: 
-
-	 Service attributes: [net.jini.lookup.entry.Name(name=tpSpace)]
-	 Service attributes: [com.j_spaces.lookup.entry.State(state=started,electable=null,replicable=null)]
-	 Lookup timeout: [5000]
-	 Class: com.j_spaces.core.service.Service
-	 Jini Lookup Groups: [qa]
-	 Jini Lookup Locators: [jini://nyc:4174/]
-
-	at com.j_spaces.core.client.LookupFinder.find(LookupFinder.java:141)
-	at com.j_spaces.core.client.SpaceFinder.findJiniSpace(SpaceFinder.java:715)
-	at com.j_spaces.core.client.SpaceFinder.findService(SpaceFinder.java:506)
-	at com.j_spaces.core.client.SpaceFinder.findService(SpaceFinder.java:456)
-	at com.j_spaces.core.client.SpaceFinder.find(SpaceFinder.java:345)
-	at com.gigaspaces.client.SpaceProxyFactory.createSpaceProxy(SpaceProxyFactory.java:77)
-	at org.openspaces.core.space.InternalSpaceFactory.create(InternalSpaceFactory.java:104)
-	... 122 more
-Caused by: java.net.BindException: Cannot assign requested address
-	at java.net.PlainSocketImpl.socketBind(Native Method)
-	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
-	at java.net.ServerSocket.bind(ServerSocket.java:375)
-	at java.net.ServerSocket.<init>(ServerSocket.java:237)
-	at net.jini.discovery.LookupDiscovery$ResponseListener.<init>(LookupDiscovery.java:1217)
-	at net.jini.discovery.LookupDiscovery$1.run(LookupDiscovery.java:2472)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at net.jini.security.Security$5.run(Security.java:546)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at net.jini.security.Security.doPrivileged(Security.java:543)
-	at net.jini.discovery.LookupDiscovery.requestGroups(LookupDiscovery.java:2467)
-	at net.jini.discovery.LookupDiscovery.beginDiscovery(LookupDiscovery.java:3052)
-	at net.jini.discovery.LookupDiscovery.<init>(LookupDiscovery.java:1924)
-	at net.jini.discovery.LookupDiscoveryManager.beginDiscovery(LookupDiscoveryManager.java:1521)
-	at net.jini.discovery.LookupDiscoveryManager.<init>(LookupDiscoveryManager.java:963)
-	at net.jini.discovery.LookupDiscoveryManager.<init>(LookupDiscoveryManager.java:947)
-	at com.j_spaces.core.jini.SharedDiscoveryManagement$SharedDiscoveryManager.<init>(SharedDiscoveryManagement.java:325)
-	at com.j_spaces.core.jini.SharedDiscoveryManagement.getLookupDiscoveryManager(SharedDiscoveryManagement.java:69)
-	at com.j_spaces.core.jini.SharedDiscoveryManagement.getServiceDiscoveryManagerResult(SharedDiscoveryManagement.java:180)
-	at com.j_spaces.core.jini.SharedDiscoveryManagement.getServiceDiscoveryManager(SharedDiscoveryManagement.java:133)
-	at com.j_spaces.core.jini.SharedDiscoveryManagement.getBackwardsServiceDiscoveryManager(SharedDiscoveryManagement.java:94)
-	at com.j_spaces.core.client.LookupFinder.find(LookupFinder.java:119)
-	... 128 more
+	... 24 more
+2017-09-07 17:14:26,254 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 19764 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:14:26,259 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:14:30,916 INFO [org.apache.tomcat.util.net.NioSelectorPool] [main]- Using a shared selector for servlet write/read
+2017-09-07 17:14:30,936 WARN [com.betamedia.atom.app.classloader.impl.ContextClassLoaderManagingExecutorImpl] [main]- Couldn't get testslibrary version
+2017-09-07 17:14:30,938 INFO [com.betamedia.atom.webservice.Application] [main]- Started Application in 4.994 seconds (JVM running for 9.409)
+2017-09-07 17:18:14,340 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 20085 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:18:14,345 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:18:17,816 WARN [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] [main]- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testLinkService': Invocation of init method failed; nested exception is java.net.MalformedURLException: no protocol: 
+2017-09-07 17:18:17,830 ERROR [org.springframework.boot.SpringApplication] [main]- Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testLinkService': Invocation of init method failed; nested exception is java.net.MalformedURLException: no protocol: 
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:137)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:409)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.betamedia.atom.webservice.Application.main(Application.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:527)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.MalformedURLException: no protocol: 
+	at java.net.URL.<init>(URL.java:593)
+	at java.net.URL.<init>(URL.java:490)
+	at java.net.URL.<init>(URL.java:439)
+	at com.betamedia.atom.core.testlink.TestLinkService.init(TestLinkService.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:311)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:134)
+	... 24 more
+2017-09-07 17:23:36,561 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 20468 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:23:36,566 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:23:41,115 INFO [org.apache.tomcat.util.net.NioSelectorPool] [main]- Using a shared selector for servlet write/read
+2017-09-07 17:23:41,132 WARN [com.betamedia.atom.app.classloader.impl.ContextClassLoaderManagingExecutorImpl] [main]- Couldn't get testslibrary version
+2017-09-07 17:23:41,133 INFO [com.betamedia.atom.webservice.Application] [main]- Started Application in 4.898 seconds (JVM running for 9.548)
+2017-09-07 17:24:44,171 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 20616 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:24:44,177 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:24:49,311 INFO [org.apache.tomcat.util.net.NioSelectorPool] [main]- Using a shared selector for servlet write/read
+2017-09-07 17:24:49,376 WARN [com.betamedia.atom.app.classloader.impl.ContextClassLoaderManagingExecutorImpl] [main]- Couldn't get testslibrary version
+2017-09-07 17:24:49,382 INFO [com.betamedia.atom.webservice.Application] [main]- Started Application in 5.542 seconds (JVM running for 10.113)
+2017-09-07 17:39:42,149 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 21468 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:39:42,153 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:39:50,211 INFO [com.betamedia.atom.webservice.Application] [main]- Starting Application on maksym-pc with PID 21501 (/home/tsyb/ProjectExamples/ATOM/webservice/target/classes started by tsyb in /home/tsyb/ProjectExamples/ATOM/webservice)
+2017-09-07 17:39:50,217 INFO [com.betamedia.atom.webservice.Application] [main]- No active profile set, falling back to default profiles: default
+2017-09-07 17:39:55,162 INFO [org.apache.tomcat.util.net.NioSelectorPool] [main]- Using a shared selector for servlet write/read
+2017-09-07 17:39:55,179 WARN [com.betamedia.atom.app.classloader.impl.ContextClassLoaderManagingExecutorImpl] [main]- Couldn't get testslibrary version
+2017-09-07 17:39:55,181 INFO [com.betamedia.atom.webservice.Application] [main]- Started Application in 5.328 seconds (JVM running for 9.623)

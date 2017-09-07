@@ -44,26 +44,6 @@ public class QAEnvironmentConfig {
     }
 
     @Bean
-    public AbstractAccountOperations<QAEnvironment> qaAccountOperations() {
-        return new AbstractAccountOperations<QAEnvironment>() {
-
-            public EnvironmentType getEnvironment() {
-                return QAEnvironmentConfig.getEnvironment();
-            }
-        };
-    }
-
-    @Bean
-    public AbstractBonusOperations<QAEnvironment> qaBonusOperations() {
-        return new AbstractBonusOperations<QAEnvironment>() {
-
-            public EnvironmentType getEnvironment() {
-                return QAEnvironmentConfig.getEnvironment();
-            }
-        };
-    }
-
-    @Bean
     public AbstractCustomerOperations<QAEnvironment> qaCustomerOperations() {
         return new AbstractCustomerOperations<QAEnvironment>() {
 

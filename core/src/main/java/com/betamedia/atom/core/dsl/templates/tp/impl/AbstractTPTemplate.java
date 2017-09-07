@@ -12,25 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class AbstractTPTemplate<T extends EnvironmentDependent> implements TPTemplate<T> {
 
     @Autowired
-    private AccountOperations<T> accountOperations;
-    @Autowired
-    private BonusOperations<T> bonusOperations;
-    @Autowired
     private CustomerOperations<T> customerOperations;
     @Autowired
     private OnBoardingOperations<T> onBoardingOperations;
     @Autowired
     private CrmDBOperations<T> crmDBOperations;
-
-    @Override
-    public AccountOperations accountOperations() {
-        return accountOperations;
-    }
-
-    @Override
-    public BonusOperations bonusOperations() {
-        return bonusOperations;
-    }
 
     @Override
     public CustomerOperations customerOperations() {

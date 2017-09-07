@@ -60,6 +60,16 @@ public class StubConfiguration {
             return getStub(AbstractTradingAccountExtensionRepository.class);
         }
 
+        @Bean
+        public AbstractCreditCardDepositExtensionBase creditCardDepositExtensionBase() throws InstantiationException, IllegalAccessException {
+            return getStub(AbstractCreditCardDepositExtensionBase.class);
+        }
+
+        @Bean
+        public AbstractWithdrawalRequestRepository withdrawalRequestRepository() throws InstantiationException, IllegalAccessException {
+            return getStub(AbstractWithdrawalRequestRepository.class);
+        }
+
     }
 
     private static <T> T getStub(Class<T> clazz) throws IllegalAccessException, InstantiationException {
