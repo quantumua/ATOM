@@ -17,7 +17,7 @@ import org.openqa.selenium.remote.BrowserType;
 @TestConfigurationProperties(
         productType = ProductType.TP,
         environment = EnvironmentType.QA,
-        environmentUrl = "https://qawww.24option.com/eu/trade/",
+        environmentUrl = "https://www.24option.com/international/",
         browserType = BrowserType.FIREFOX)
 public class WebEndToEndTest extends AbstractEndToEndTest<TPTemplate, WebPageFactoryImpl> {
 	@Override

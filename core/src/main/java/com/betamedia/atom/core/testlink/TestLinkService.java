@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.betamedia.atom.core.testlink.TestLinkService.TESTLINK_ENABLED;
+import static com.betamedia.atom.core.testlink.TestLinkService.TESTLINK_URL;
 
 /**
  * Service to provide TestLink integration.
@@ -23,11 +23,11 @@ import static com.betamedia.atom.core.testlink.TestLinkService.TESTLINK_ENABLED;
  * Created by Oleksandr Losiev on 5/16/17.
  */
 @Service
-@ConditionalOnProperty(name = TESTLINK_ENABLED, havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = TESTLINK_URL)
 public class TestLinkService {
 
     private static final Logger log = LogManager.getLogger(TestLinkService.class);
-    public static final String TESTLINK_ENABLED = "testlink.enabled";
+    public static final String TESTLINK_URL = "testlink.url";
     @Autowired
     private TestLinkProperties testLinkProperties;
     private TestLinkAPI api;

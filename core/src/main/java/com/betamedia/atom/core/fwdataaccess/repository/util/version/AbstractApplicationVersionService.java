@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -46,7 +47,7 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
 
     private RepositoryVersion getVersion(String address) {
         ApplicationVersion appVersion = getAppVersion(address);
-        return new RepositoryVersion(appVersion.implementationVersion, LocalDateTime.parse(appVersion.revisionDate, DateTimeFormatter.ofPattern(LocalDateTimeConverter.DATE_PATTERN)));
+        return new RepositoryVersion(appVersion.implementationVersion, appVersion.getRevisionDateLocalDateTime());
     }
 
     /**
@@ -65,11 +66,16 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     private static class ApplicationVersion {
-        private String revisionDate = null;
+
+        private static DateTimeFormatter revisionDateFormatter = DateTimeFormatter.ofPattern(LocalDateTimeConverter.DATE_PATTERN);
+
+        private String revisionDate = ZonedDateTime.now().format(revisionDateFormatter);
         private String implementationVersion = null;
 
         public void setRevisionDate(String revisionDate) {
-            this.revisionDate = revisionDate == null ? null : trimQuotes(revisionDate);
+            if (revisionDate !=null) {
+                this.revisionDate = trimQuotes(revisionDate);
+            }
         }
 
         public void setImplementationVersion(String implementationVersion) {
@@ -82,6 +88,10 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
 
         public String getImplementationVersion() {
             return implementationVersion;
+        }
+
+        private LocalDateTime getRevisionDateLocalDateTime(){
+            return  LocalDateTime.parse(revisionDate, ApplicationVersion.revisionDateFormatter);
         }
 
         private static String trimQuotes(String input) {
