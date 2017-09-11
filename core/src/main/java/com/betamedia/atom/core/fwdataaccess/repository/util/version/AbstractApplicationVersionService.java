@@ -2,7 +2,7 @@ package com.betamedia.atom.core.fwdataaccess.repository.util.version;
 
 import com.betamedia.atom.core.configuration.properties.CRMProperties;
 import com.betamedia.atom.core.environment.tp.EnvironmentDependent;
-import com.betamedia.atom.core.fwdataaccess.converters.LocalDateTimeConverter;
+import com.betamedia.atom.core.fwdataaccess.converters.ZonedDateTimeConverter;
 import com.betamedia.atom.core.fwdataaccess.repository.util.RepositoryVersion;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 /**
  * @author mbelyaev
@@ -25,6 +25,7 @@ import java.time.format.DateTimeFormatter;
  */
 public abstract class AbstractApplicationVersionService<T extends EnvironmentDependent> implements ApplicationVersionService {
     private static final Logger logger = LogManager.getLogger(AbstractApplicationVersionService.class);
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(ZonedDateTimeConverter.DATE_PATTERN);
     @Autowired
     private CRMProperties<T> crmProperties;
     @Autowired
@@ -47,7 +48,7 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
 
     private RepositoryVersion getVersion(String address) {
         ApplicationVersion appVersion = getAppVersion(address);
-        return new RepositoryVersion(appVersion.implementationVersion, appVersion.getRevisionDateLocalDateTime());
+        return new RepositoryVersion(appVersion.implementationVersion, parseDateTime(appVersion.revisionDate));
     }
 
     /**
@@ -64,22 +65,22 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
         }
     }
 
+    private ZonedDateTime parseDateTime(String dateTime) {
+        return Optional.of(dateTime).map(date -> ZonedDateTime.parse(date, dateFormatter)).orElse(null);
+    }
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     private static class ApplicationVersion {
 
-        private static DateTimeFormatter revisionDateFormatter = DateTimeFormatter.ofPattern(LocalDateTimeConverter.DATE_PATTERN);
-
-        private String revisionDate = ZonedDateTime.now().format(revisionDateFormatter);
+        private String revisionDate = null;
         private String implementationVersion = null;
 
         public void setRevisionDate(String revisionDate) {
-            if (revisionDate !=null) {
-                this.revisionDate = trimQuotes(revisionDate);
-            }
+            this.revisionDate = Optional.of(revisionDate).map(ApplicationVersion::trimQuotes).orElse(null);
         }
 
         public void setImplementationVersion(String implementationVersion) {
-            this.implementationVersion = implementationVersion == null ? null : trimVersionPostfix(implementationVersion);
+            this.implementationVersion = Optional.of(implementationVersion).map(ApplicationVersion::trimVersionPostfix).orElse(null);
         }
 
         public String getRevisionDate() {
@@ -88,10 +89,6 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
 
         public String getImplementationVersion() {
             return implementationVersion;
-        }
-
-        private LocalDateTime getRevisionDateLocalDateTime(){
-            return  LocalDateTime.parse(revisionDate, ApplicationVersion.revisionDateFormatter);
         }
 
         private static String trimQuotes(String input) {
