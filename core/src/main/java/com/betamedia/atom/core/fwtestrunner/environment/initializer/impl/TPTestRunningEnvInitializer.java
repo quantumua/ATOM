@@ -3,7 +3,7 @@ package com.betamedia.atom.core.fwtestrunner.environment.initializer.impl;
 import com.betamedia.atom.core.dsl.templates.tp.TPTemplate;
 import com.betamedia.atom.core.dsl.templates.tp.TPTemplateProvider;
 import com.betamedia.atom.core.dsl.type.EnvironmentType;
-import com.betamedia.atom.core.fwdataaccess.converters.LocalDateTimeConverter;
+import com.betamedia.atom.core.fwdataaccess.converters.ZonedDateTimeConverter;
 import com.betamedia.atom.core.fwdataaccess.repository.impl.LocalizationRepository;
 import com.betamedia.atom.core.fwdataaccess.repository.impl.VersionedLocalizationRepositoryImpl;
 import com.betamedia.atom.core.fwdataaccess.repository.impl.VersionedWebElementRepositoryImpl;
@@ -20,7 +20,7 @@ import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.Properties;
@@ -98,8 +98,8 @@ public class TPTestRunningEnvInitializer implements TestRunningEnvInitializer, T
         return new RepositoryVersion(implementationVersion, Strings.isNullOrEmpty(dateString) ? null : getRevisionDate(dateString));
     }
 
-    private static LocalDateTime getRevisionDate(String dateString) {
-        return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern(LocalDateTimeConverter.DATE_PATTERN));
+    private static ZonedDateTime getRevisionDate(String dateString) {
+        return ZonedDateTime.parse(dateString, DateTimeFormatter.ofPattern(ZonedDateTimeConverter.DATE_PATTERN));
     }
 
 }

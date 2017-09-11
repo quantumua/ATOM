@@ -2,7 +2,8 @@ package com.betamedia.atom.core.fwdataaccess.repository.util;
 
 import org.testng.annotations.Test;
 
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -26,11 +27,11 @@ public class RepositoryVersionTest {
     }
 
 
-    private LocalDateTime getDate(int day) {
-        return LocalDateTime.of(2017, 6, day, 0, 0);
+    private ZonedDateTime getDate(int day) {
+        return ZonedDateTime.of(2017, 6, day, 0, 0, 0, 0, ZoneId.of("+0"));
     }
 
-    private RepositoryVersion getRepoVersion(String implVersion, LocalDateTime implDate) {
+    private RepositoryVersion getRepoVersion(String implVersion, ZonedDateTime implDate) {
         return new RepositoryVersion(implVersion, implDate);
     }
 

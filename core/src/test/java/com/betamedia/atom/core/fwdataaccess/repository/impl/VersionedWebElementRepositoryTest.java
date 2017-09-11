@@ -7,7 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import static org.hamcrest.Matchers.is;
 
@@ -108,15 +109,15 @@ public class VersionedWebElementRepositoryTest {
         return new VersionedWebElementRepositoryImpl(version, webElementRepository).get(pageObjectName, locatorId).value;
     }
 
-    private LocalDateTime getDate(int day) {
-        return LocalDateTime.of(2017, 6, day, 0, 0);
+    private ZonedDateTime getDate(int day) {
+        return ZonedDateTime.of(2017, 6, day, 0, 0, 0, 0, ZoneId.of("+0"));
     }
 
-    private LocalDateTime getDate(int day, int hour) {
-        return LocalDateTime.of(2017, 6, day, hour, 0);
+    private ZonedDateTime getDate(int day, int hour) {
+        return ZonedDateTime.of(2017, 6, day, hour, 0, 0, 0, ZoneId.of("+0"));
     }
 
-    private RepositoryVersion getRepoVersion(String implVersion, LocalDateTime implDate) {
+    private RepositoryVersion getRepoVersion(String implVersion, ZonedDateTime implDate) {
         return new RepositoryVersion(implVersion, implDate);
     }
 }

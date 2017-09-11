@@ -1,6 +1,6 @@
 package com.betamedia.atom.core.fwdataaccess.repository.util;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
@@ -10,9 +10,9 @@ import java.util.function.BiFunction;
  */
 public class RepositoryVersion implements Comparable<RepositoryVersion> {
     public final String implementationVersion;
-    public final LocalDateTime revisionDate;
+    public final ZonedDateTime revisionDate;
 
-    public RepositoryVersion(String implementationVersion, LocalDateTime revisionDate) {
+    public RepositoryVersion(String implementationVersion, ZonedDateTime revisionDate) {
         this.implementationVersion = implementationVersion;
         this.revisionDate = revisionDate;
     }
@@ -20,13 +20,13 @@ public class RepositoryVersion implements Comparable<RepositoryVersion> {
     @Override
     public int compareTo(RepositoryVersion o) {
         if (o.implementationVersion == null) {
-            return handleNulls(this.revisionDate, o.revisionDate, LocalDateTime::compareTo);
+            return handleNulls(this.revisionDate, o.revisionDate, ZonedDateTime::compareTo);
         }
         int diff = handleNulls(this.implementationVersion, o.implementationVersion, RepositoryVersion::compareVersionStrings);
         if (diff != 0) {
             return diff;
         }
-        return handleNulls(this.revisionDate, o.revisionDate, LocalDateTime::compareTo);
+        return handleNulls(this.revisionDate, o.revisionDate, ZonedDateTime::compareTo);
     }
 
     private static <T> int handleNulls(T o1, T o2, BiFunction<T, T, Integer> biFunction) {

@@ -1,11 +1,11 @@
 package com.betamedia.atom.core.fwdataaccess.entities;
 
 import com.betamedia.atom.core.fwdataaccess.repository.util.Index;
-import com.betamedia.atom.core.fwdataaccess.converters.LocalDateTimeConverter;
+import com.betamedia.atom.core.fwdataaccess.converters.ZonedDateTimeConverter;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 import com.betamedia.atom.core.fwdataaccess.repository.util.RepositoryVersion;
 
@@ -21,8 +21,8 @@ public class PageElementLocation {
     private String locatorId;
     @CsvBindByName
     private String implementationVersion;
-    @CsvCustomBindByName(converter = LocalDateTimeConverter.class)
-    private LocalDateTime revisionDate;
+    @CsvCustomBindByName(converter = ZonedDateTimeConverter.class)
+    private ZonedDateTime revisionDate;
     @CsvBindByName
     private String locatorType;
     @CsvBindByName
