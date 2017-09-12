@@ -5,8 +5,8 @@ import org.openqa.selenium.By;
 import org.testng.Reporter;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -72,13 +72,18 @@ public interface FieldOperations {
      * @param target            target page object
      */
     default <T, U> void forPageElements(Function<? super By, U> mapper, Consumer<U> consumer, Predicate<Field> fieldPredicate, Predicate<StoredId> storedIdPredicate, T target) {
+        AtomicBoolean hasAccepted = new AtomicBoolean(false);
+        Consumer<U> acceptMonitor = value -> hasAccepted.compareAndSet(false, true);
         getStream(fieldPredicate, storedIdPredicate, mapper, target)
-                .forEach(consumer);
+                .forEach(acceptMonitor.andThen(consumer));
+        if (!hasAccepted.get()) {
+            throw new IllegalArgumentException("No appropriate fields found on the page object" + target.getClass().getSimpleName());
+        }
     }
 
     abstract class Utils {
         static <T, U> Stream<U> getStream(Predicate<Field> fieldPredicate, Predicate<StoredId> storedIdPredicate, Function<? super By, U> mapper, T target) {
-            return Arrays.stream(target.getClass().getDeclaredFields())
+            return getFields(target.getClass())
                     .filter(field -> By.class.isAssignableFrom(field.getType()))
                     .filter(fieldPredicate)
                     .filter(f -> storedIdPredicate.test(f.getAnnotation(StoredId.class)))
@@ -96,6 +101,14 @@ public interface FieldOperations {
             } catch (IllegalAccessException e) {
                 throw new RuntimeException("", e);
             }
+        }
+
+        private static Stream<Field> getFields(Class<?> clazz) {
+            return clazz.equals(Object.class) ?
+                    Stream.empty() :
+                    Stream.concat(
+                            Stream.of(clazz.getDeclaredFields()),
+                            getFields(clazz.getSuperclass()));
         }
 
     }
