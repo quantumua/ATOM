@@ -5,10 +5,10 @@ mvnw.cmd
 test-output/
 upload-dir/
 public/
-.log.gz
-.orig
-.jar
-.sh
+*.log.gz
+*.orig
+*.jar
+*.sh
 
 ### STS ###
 .apt_generated

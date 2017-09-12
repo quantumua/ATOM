@@ -62,7 +62,11 @@ public class PageObjectCreatorImpl implements PageObjectCreator {
         T page;
         try {
             page = clazz.getConstructor(WebDriver.class).newInstance(driver);
-        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+        } catch (NoSuchMethodException e) {
+            String noConstructorErrorMessage = "No constructor " + clazz.getSimpleName() + "(WebDriver web) or it isn't public";
+            logger.error(noConstructorErrorMessage, e);
+            throw new RuntimeException(noConstructorErrorMessage, e);
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             logger.error("", e);
             throw new RuntimeException(e);
         }

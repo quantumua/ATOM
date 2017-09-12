@@ -6,6 +6,8 @@ import com.betamedia.atom.core.fwdataaccess.repository.util.RepositoryVersion;
 import com.betamedia.atom.core.fwdataaccess.entities.FindBy;
 
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
  * @author Maksym Tsybulskyy
@@ -21,6 +23,9 @@ public class VersionedWebElementRepositoryImpl implements VersionedWebElementRep
 
     @Override
     public FindBy get(String pageObjectName, String locatorId) {
-        return locations.get(new Index(pageObjectName, locatorId));
+        return Optional.ofNullable(locations.get(new Index(pageObjectName, locatorId)))
+                .orElseThrow(
+                        () -> new NoSuchElementException("failed to find element {pageObjectName: " + pageObjectName + ",  locatorId: " + locatorId + "} in WebElementRepository")
+                );
     }
 }

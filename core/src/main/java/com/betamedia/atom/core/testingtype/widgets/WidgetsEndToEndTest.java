@@ -22,7 +22,7 @@ public class WidgetsEndToEndTest extends AbstractEndToEndTest<TPTemplate, Widget
 
     @Override
     public final TPTemplate getOperationTemplate() {
-        return ThreadLocalBeansHolder.getOperationsTemplate();
+        return (TPTemplate) ThreadLocalBeansHolder.getOperationsTemplate();
     }
 
     @Override

@@ -50,9 +50,10 @@ public abstract class AbstractApplicationVersionService<T extends EnvironmentDep
 
     private ApplicationVersion getAppVersion(String address) {
         try {
-            return mapper.readValue(restTemplate.getForObject(address, String.class), ApplicationVersion.class);
+            throw new IOException("No implementation for ApplicationVersionService, getting default");
+//            return mapper.readValue(restTemplate.getForObject(address, String.class), ApplicationVersion.class);
         } catch (IOException | RestClientException e) {
-            logger.error("Could not retrieve application version from server:", e);
+            logger.warn("Could not retrieve application version from server:", e);
             return new ApplicationVersion();
         }
     }

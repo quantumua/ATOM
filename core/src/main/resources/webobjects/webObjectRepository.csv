@@ -395,3 +395,16 @@ implementationVersion,revisionDate,pageObjectName,locatorId,locatorType,value
 2.6.2,2017-05-29 15:24 +0000,WithdrawalPageImpl,withdrawalComment,ID,Comment
 2.6.2,2017-05-29 15:24 +0000,WithdrawalPageImpl,withdrawalBtnStep2,ID,swWithdrawalBtn
 2.6.2,2017-05-29 15:24 +0000,WithdrawalPageImpl,withdrawalPrev,ID,swPreviosBtn
+2.6.2,2017-05-29 15:24 +0000,BFTopNavigationImpl,signIn,CSS,ul.sf-menu>li#menu-item-11>a
+2.6.2,2017-05-29 15:24 +0000,BFSignInFormPageImpl,signUpLink,ID,sign_up-link
+2.6.2,2017-05-29 15:24 +0000,BFSignInFormPageImpl,loginFormEmail,ID,LoginForm_email
+2.6.2,2017-05-29 15:24 +0000,BFSignInFormPageImpl,loginFormPassword,ID,LoginForm_password
+2.6.2,2017-05-29 15:24 +0000,BFSignInFormPageImpl,loginFormBtn,ID,loginBtn
+2.6.2,2017-05-29 15:24 +0000,BFSignUpPageImpl,signUpAsSMBBtn,ID,signupAsSMB
+2.6.2,2017-05-29 15:24 +0000,BFSignUpPageImpl,signUpAsSupplierBtn,ID,signupAsSupplier
+2.6.2,2017-05-29 15:24 +0000,BFSignUpFormPageImpl,signUpFormFirstName,ID,SignupForm_firstName
+2.6.2,2017-05-29 15:24 +0000,BFSignUpFormPageImpl,signUpFormLastName,ID,SignupForm_lastName
+2.6.2,2017-05-29 15:24 +0000,BFSignUpFormPageImpl,signUpFormCompany,ID,SignupForm_company
+2.6.2,2017-05-29 15:24 +0000,BFSignUpFormPageImpl,signUpFormEmail,ID,SignupForm_email
+2.6.2,2017-05-29 15:24 +0000,BFSignUpFormPageImpl,signUpFormPassword,ID,SignupForm_password
+2.6.2,2017-05-29 15:24 +0000,BFSignUpFormPageImpl,signUpFormBtn,ID,signupBtn

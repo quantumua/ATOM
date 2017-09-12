@@ -1,6 +1,6 @@
 package com.betamedia.atom.core.holders;
 
-import com.betamedia.atom.core.dsl.templates.tp.TPTemplate;
+import com.betamedia.atom.core.dsl.templates.BackEndOperationsTemplate;
 import com.betamedia.atom.core.fwdataaccess.repository.VersionedLocalizationRepository;
 import com.betamedia.atom.core.fwdataaccess.repository.VersionedWebElementRepository;
 import com.betamedia.atom.core.fwservices.webdriver.WebDriverFactory;
@@ -12,7 +12,7 @@ import com.betamedia.atom.core.fwservices.webdriver.WebDriverFactory;
 public class ThreadLocalBeansHolder {
     private static final InheritableThreadLocal<WebDriverFactory> webDriverFactoryThreadLocal = new InheritableThreadLocal<>();
     private static final InheritableThreadLocal<VersionedWebElementRepository> versionedWebElementRepositoryThreadLocal = new InheritableThreadLocal<>();
-    private static final InheritableThreadLocal<TPTemplate> operationsTemplateThreadLocal = new InheritableThreadLocal<>();
+    private static final InheritableThreadLocal<BackEndOperationsTemplate> operationsTemplateThreadLocal = new InheritableThreadLocal<>();
     private static final InheritableThreadLocal<VersionedLocalizationRepository> versionedLocalizationRepositoryThreadLocal = new InheritableThreadLocal<>();
 
     private ThreadLocalBeansHolder(){}
@@ -33,11 +33,11 @@ public class ThreadLocalBeansHolder {
         versionedWebElementRepositoryThreadLocal.set(versionedWebElementRepository);
     }
 
-    public static TPTemplate getOperationsTemplate() {
+    public static BackEndOperationsTemplate getOperationsTemplate() {
         return operationsTemplateThreadLocal.get();
     }
 
-    public static void setOperationsTemplate(TPTemplate operationsTemplate) {
+    public static void setOperationsTemplate(BackEndOperationsTemplate operationsTemplate) {
         operationsTemplateThreadLocal.set(operationsTemplate);
     }
 

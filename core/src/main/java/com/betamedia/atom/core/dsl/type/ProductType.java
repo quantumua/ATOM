@@ -8,5 +8,6 @@ public enum ProductType {
     TP,
     CRM,
     WIDGETS,
-	WEB;
+	WEB,
+    BEHALF
 }

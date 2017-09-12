@@ -1,6 +1,6 @@
 package com.betamedia.atom.core.behalf;
 
-import com.betamedia.atom.core.behalf.pages.factory.impl.BehalfPageFactoryImpl;
+import com.betamedia.atom.core.behalf.pages.factory.impl.BFPageFactoryImpl;
 import com.betamedia.atom.core.dsl.type.EnvironmentType;
 import com.betamedia.atom.core.dsl.type.ProductType;
 import com.betamedia.atom.core.holders.AppContextHolder;
@@ -13,13 +13,14 @@ import org.openqa.selenium.remote.BrowserType;
  *         Date: 9/11/17.
  */
 @TestConfigurationProperties(
+        //TODO refactor envInitialier to use original poduct type
         productType = ProductType.TP,
         environment = EnvironmentType.QA,
         environmentUrl = "https://www.behalf.com/",
         browserType = BrowserType.FIREFOX)
-public class BehalfClientTest extends AbstractClientTest<BehalfPageFactoryImpl> {
+public class BFClientTest extends AbstractClientTest<BFPageFactoryImpl> {
     @Override
-    public BehalfPageFactoryImpl getPageFactory() {
-        return AppContextHolder.getBean(BehalfPageFactoryImpl.class);
+    public BFPageFactoryImpl getPageFactory() {
+        return AppContextHolder.getBean(BFPageFactoryImpl.class);
     }
 }
